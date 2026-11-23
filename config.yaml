@@ -1,0 +1,19 @@
+# Modelle laufen lokal über Ollama (https://ollama.com)
+ollama_host: http://localhost:11434
+llm_model: qwen2.5:3b          # gutes Deutsch, läuft mit 16 GB RAM; Alternative: mistral
+embedding_model: bge-m3        # mehrsprachig, stark auf Deutsch
+temperature: 0.0
+
+# Daten und Speicherorte (relativ zum Projektordner)
+data_dir: data/raw
+qdrant_path: storage/qdrant
+manifest_path: storage/manifest.json
+log_path: logs/anfragen.jsonl
+collection: verwaltung_bw
+
+# Retrieval
+chunk_size: 1200      # Zeichen pro Abschnitt
+chunk_overlap: 200
+embed_batch: 8
+top_k: 5
+min_score: 0.35       # Treffer darunter gelten als irrelevant
